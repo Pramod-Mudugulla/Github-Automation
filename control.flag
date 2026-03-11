@@ -1,0 +1,4 @@
+# GitHub Auto-Contribution Agents - Kill Switch
+# Set to "on" to enable agents, "off" to disable
+# Or simply delete this file to stop all agents
+status=on

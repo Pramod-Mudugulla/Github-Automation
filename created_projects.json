@@ -1,0 +1,11 @@
+{
+  "projects": [
+    {
+      "name": "markdown-slide-presenter",
+      "description": "Convert markdown files into slide presentations in the browser",
+      "language": "javascript",
+      "complexity": 6,
+      "created_date": "2026-03-03"
+    }
+  ]
+}
