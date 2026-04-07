@@ -1,0 +1,51 @@
+name: GitHub Automation Agent
+
+on:
+  schedule:
+    # Run at 12:30 UTC every day. (6:00 PM IST)
+    - cron: '30 12 * * *'
+  # Allow manual trigger from the GitHub UI
+  workflow_dispatch:
+
+permissions:
+  contents: write # Needed to commit state back to the repository
+
+jobs:
+  run-agents:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Daily Commit Agent
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+        run: |
+          python daily_commit.py
+
+      - name: Run Project Creator Agent
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python project_creator.py
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update config and agents state"
+          file_pattern: "config.json created_projects.json"
+          branch: main
