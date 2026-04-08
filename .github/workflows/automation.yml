@@ -44,8 +44,11 @@ jobs:
           python project_creator.py
 
       - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: update config and agents state"
-          file_pattern: "config.json created_projects.json"
-          branch: main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add config.json created_projects.json
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "chore: update config and agents state"
+          git pull --rebase origin main
+          git push
