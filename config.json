@@ -7,7 +7,7 @@
       3
     ],
     "target_file": ".contributions",
-    "last_committed_repo": "seizure-EEG-classifier",
+    "last_committed_repo": "Spiderman-landing-Page",
     "exclude_forks": true,
     "commit_messages": [
       "docs: update activity log",
@@ -18,7 +18,7 @@
       "chore: update contribution log",
       "docs: sync notes"
     ],
-    "last_committed_date": "2026-05-07"
+    "last_committed_date": "2026-05-08"
   },
   "project_creator": {
     "enabled": false,
