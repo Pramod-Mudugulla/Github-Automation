@@ -172,6 +172,11 @@ def main():
     log.info("Daily Commit Agent — Starting")
     log.info("=" * 60)
 
+    # 0. Check if running in GitHub Actions
+    if not os.environ.get("GITHUB_ACTIONS"):
+        log.info("Not running in GitHub Actions — exiting to prevent local execution.")
+        return
+
     # 1. Kill switch
     if not check_kill_switch():
         return

@@ -1,13 +1,13 @@
 {
   "daily_commit": {
-    "enabled": true,
+    "enabled": false,
     "username": "Pramod-Mudugulla",
     "commit_count_range": [
       3,
       10
     ],
     "target_file": ".contributions",
-    "last_committed_repo": "seizure-EEG-classifier",
+    "last_committed_repo": "markdown-slide-presenter",
     "exclude_forks": true,
     "commit_messages": [
       "docs: update activity log",
