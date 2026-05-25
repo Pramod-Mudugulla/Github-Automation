@@ -223,7 +223,7 @@ def main():
         log.info(f"Selected repo: {repo.full_name}")
 
         # 8. Random commit count (1-3)
-        count_range = dc.get("commit_count_range", [1, 3])
+        count_range = dc.get("commit_count_range", [3, 10])
         commit_count = random.randint(count_range[0], count_range[1])
         log.info(f"Will make {commit_count} commit(s)")
 
