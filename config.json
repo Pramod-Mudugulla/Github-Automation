@@ -1,6 +1,6 @@
 {
   "daily_commit": {
-    "enabled": false,
+    "enabled": true,
     "username": "Pramod-Mudugulla",
     "commit_count_range": [
       3,
